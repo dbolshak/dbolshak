@@ -1,0 +1,102 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building web-restfull 0.1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ web-restfull ---
+[INFO] Deleting C:\dev\projects\restfull\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ web-restfull ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ web-restfull ---
+[INFO] Compiling 4 source files to C:\dev\projects\restfull\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ web-restfull ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\dev\projects\restfull\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ web-restfull ---
+[INFO] Compiling 1 source file to C:\dev\projects\restfull\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ web-restfull ---
+[INFO] Surefire report directory: C:\dev\projects\restfull\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.dbolshak.prototype.rest.controller.ItemControllerTest
+апр 28, 2014 3:38:07 PM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping registerHandlerMethod
+INFO: Mapped "{[/item/{id}],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public com.dbolshak.prototype.dao.domain.Item com.dbolshak.prototype.rest.controller.ItemController.get(long)
+апр 28, 2014 3:38:07 PM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping registerHandlerMethod
+INFO: Mapped "{[/item/{id}],methods=[DELETE],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.dbolshak.prototype.rest.controller.ItemController.delete(long)
+апр 28, 2014 3:38:07 PM org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping registerHandlerMethod
+INFO: Mapped "{[/item],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.dbolshak.prototype.rest.controller.ItemController.generate()
+апр 28, 2014 3:38:07 PM org.springframework.mock.web.MockServletContext log
+INFO: Initializing Spring FrameworkServlet ''
+апр 28, 2014 3:38:07 PM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet '': initialization started
+апр 28, 2014 3:38:07 PM org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+INFO: FrameworkServlet '': initialization completed in 3 ms
+
+MockHttpServletRequest:
+         HTTP Method = GET
+         Request URI = /item/1
+          Parameters = {}
+             Headers = {Accept=[application/json]}
+
+             Handler:
+                Type = com.dbolshak.prototype.rest.controller.ItemController
+              Method = public com.dbolshak.prototype.dao.domain.Item com.dbolshak.prototype.rest.controller.ItemController.get(long)
+
+               Async:
+   Was async started = false
+        Async result = null
+
+  Resolved Exception:
+                Type = null
+
+        ModelAndView:
+           View name = null
+                View = null
+               Model = null
+
+            FlashMap:
+
+MockHttpServletResponse:
+              Status = 200
+       Error message = null
+             Headers = {Content-Type=[application/json;charset=UTF-8]}
+        Content type = application/json;charset=UTF-8
+                Body = {"id":1,"content":"test content"}
+       Forwarded URL = null
+      Redirected URL = null
+             Cookies = []
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.99 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ web-restfull ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [web-restfull] in [C:\dev\projects\restfull\target\web-restfull-0.1.0]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\dev\projects\restfull\src\main\webapp]
+[INFO] Webapp assembled in [104 msecs]
+[INFO] Building war: C:\dev\projects\restfull\target\web-restfull-0.1.0.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ web-restfull ---
+[INFO] Installing C:\dev\projects\restfull\target\web-restfull-0.1.0.war to C:\Users\dbolshak\.m2\repository\ru\mera\dbolshak\web-restfull\0.1.0\web-restfull-0.1.0.war
+[INFO] Installing C:\dev\projects\restfull\pom.xml to C:\Users\dbolshak\.m2\repository\ru\mera\dbolshak\web-restfull\0.1.0\web-restfull-0.1.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.391s
+[INFO] Finished at: Mon Apr 28 15:38:08 MSK 2014
+[INFO] Final Memory: 17M/229M
+[INFO] ------------------------------------------------------------------------
