@@ -1,6 +1,6 @@
 package com.dbolshak.prototype.rest.controller;
 
-import com.dbolshak.prototype.dao.domain.Item;
+import com.dbolshak.prototype.dao.model.domain.Item;
 import com.dbolshak.prototype.dao.service.ItemDao;
 
 import org.junit.Before;
@@ -48,6 +48,20 @@ public class ItemControllerTest {
         this.mockMvc.perform(
                 get("/item/{id}", 1)
                 .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        verify(itemDao).read(1);
+    }
+
+    @Test
+    public void getNull() throws Exception {
+
+        when(itemDao.read(1)).thenReturn(null);
+
+        this.mockMvc.perform(
+                get("/item/{id}", 1)
+                        .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
 

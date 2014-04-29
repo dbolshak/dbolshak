@@ -1,6 +1,6 @@
 package com.dbolshak.prototype.rest.controller;
 
-import com.dbolshak.prototype.dao.domain.Item;
+import com.dbolshak.prototype.dao.model.domain.Item;
 import com.dbolshak.prototype.dao.service.ItemDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ru.mera.dbolshak</groupId>
+        <groupId>com.dbolshak</groupId>
         <artifactId>prototype</artifactId>
         <version>0.0.1</version>
     </parent>
@@ -22,6 +22,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.dbolshak</groupId>
+            <artifactId>model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>

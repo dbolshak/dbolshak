@@ -1,6 +1,6 @@
 package com.dbolshak.prototype.dao.service;
 
-import com.dbolshak.prototype.dao.domain.Item;
+import com.dbolshak.prototype.dao.model.domain.Item;
 
 import org.springframework.stereotype.Service;
 
