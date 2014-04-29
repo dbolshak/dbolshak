@@ -10,26 +10,26 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Service("itemDao")
 class ItemDaoMemDB implements ItemDao {
-    private Map<Long, Item> storage = new HashMap<Long, Item>();
-    private AtomicLong counter = new AtomicLong(0);
+    private final Map<Long, Item> storage = new HashMap<Long, Item>();
+    private final AtomicLong counter = new AtomicLong(0);
 
     @Override
     public Item create(String content) {
         long id = counter.incrementAndGet();
         Item item = new Item(id, content);
-        storage.put(Long.valueOf(id), item);
+        storage.put(id, item);
         return item;
     }
 
     @Override
     public Item read(long id) {
-        return storage.get(Long.valueOf(id));
+        return storage.get(id);
     }
 
     @Override
     public boolean update(Item item) {
         if (read(item.getId()) != null) {
-            storage.put(Long.valueOf(item.getId()), item);
+            storage.put(item.getId(), item);
             return true;
         }
         return false;
@@ -38,7 +38,7 @@ class ItemDaoMemDB implements ItemDao {
     @Override
     public boolean delete(long id) {
         if (read(id) != null) {
-            storage.remove(Long.valueOf(id));
+            storage.remove(id);
             return true;
         }
         return false;

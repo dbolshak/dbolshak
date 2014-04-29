@@ -14,11 +14,12 @@
 
     <build>
         <plugins>
-            <plugin><!-- This entire ridiculous plugin should be inhertied from root -->
+            <plugin><!-- This entire ridiculous plugin should be inherited from root -->
                 <groupId>org.codehaus.gmaven</groupId>
                 <artifactId>gmaven-plugin</artifactId>
                 <version>1.5</version>
                 <configuration>
+                    <source>main/src/groovy</source>
                     <providerSelection>2.0</providerSelection>
                 </configuration>
                 <dependencies>

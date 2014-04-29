@@ -23,10 +23,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
 
 /**
- * Created by dbolshak on 28.04.2014.
+ * Created by dbolshak
  */
 public class ItemControllerTest {
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @InjectMocks
     ItemController controller;
@@ -41,7 +41,7 @@ public class ItemControllerTest {
     }
 
     @Test
-    public void getJson() throws Exception {
+    public void getItemFound() throws Exception {
 
         when(itemDao.read(1)).thenReturn(new Item(1, "test content"));
 
@@ -55,7 +55,7 @@ public class ItemControllerTest {
     }
 
     @Test
-    public void getNull() throws Exception {
+    public void getItemNotFound() throws Exception {
 
         when(itemDao.read(1)).thenReturn(null);
 
@@ -63,7 +63,7 @@ public class ItemControllerTest {
                 get("/item/{id}", 1)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isNotFound());
 
         verify(itemDao).read(1);
     }
