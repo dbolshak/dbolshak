@@ -13,12 +13,14 @@
 
     <properties>
         <spring.version>4.0.3.RELEASE</spring.version>
-        <jackson.version>1.9.13</jackson.version>
+        <jackson.version.codehouse>1.9.13</jackson.version.codehouse>
 
         <!-- For Test scope-->
         <junit.version>4.11</junit.version>
         <spring.mock.mvc.version>2.3.1</spring.mock.mvc.version>
         <mockito.version>1.9.5</mockito.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <jackson.version>2.4.0-rc1</jackson.version>
     </properties>
 
     <dependencies>
@@ -43,44 +45,30 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
+        <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
-            <version>${jackson.version}</version>
-            <!--scope>runtime</scope-->
+            <version>${jackson.version.codehouse}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
-            <version>${jackson.version}</version>
-            <!--scope>runtime</scope-->
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.4.0-rc1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.4.0-rc1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml</groupId>
-            <artifactId>jackson-xml-databind</artifactId>
-            <version>0.6.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.4.0-rc1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${jackson.version.codehouse}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -100,9 +88,27 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>3.0-alpha-1</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
             <scope>test</scope>
         </dependency>
 
