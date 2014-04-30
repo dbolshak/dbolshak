@@ -53,6 +53,7 @@ public class ItemControllerTest {
                 .andExpect(status().isOk());
 
         verify(itemDao).read(1);
+        verify(itemDao).has(1);
     }
 
     @Test
@@ -67,6 +68,6 @@ public class ItemControllerTest {
                 .andDo(print())
                 .andExpect(status().isNotFound());
 
-        verify(itemDao).read(1);
+        verify(itemDao).has(1);
     }
 }

@@ -17,7 +17,10 @@ public class ItemController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Item> get(@PathVariable long id) {
-        return new ResponseEntity<Item>(itemDao.read(id), itemDao.has(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        if (itemDao.has(id)) {
+            return new ResponseEntity<Item>(itemDao.read(id), HttpStatus.OK);
+        }
+        return new ResponseEntity<Item>(HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(method = RequestMethod.GET)
