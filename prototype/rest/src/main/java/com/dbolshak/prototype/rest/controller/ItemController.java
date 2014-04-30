@@ -17,8 +17,7 @@ public class ItemController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Item> get(@PathVariable long id) {
-        Item item = itemDao.read(id);
-        return new ResponseEntity<Item>(item, item != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Item>(itemDao.read(id), itemDao.has(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(method = RequestMethod.GET)

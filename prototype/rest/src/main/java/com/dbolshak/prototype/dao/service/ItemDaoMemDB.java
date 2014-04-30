@@ -30,7 +30,7 @@ class ItemDaoMemDB implements ItemDao {
 
     @Override
     public boolean update(Item item) {
-        if (read(item.getId()) != null) {
+        if (has(item.getId())) {
             storage.put(item.getId(), item);
             return true;
         }
@@ -39,10 +39,15 @@ class ItemDaoMemDB implements ItemDao {
 
     @Override
     public boolean delete(long id) {
-        if (read(id) != null) {
+        if (has(id)) {
             storage.remove(id);
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean has(long id) {
+        return storage.containsKey(id);
     }
 }

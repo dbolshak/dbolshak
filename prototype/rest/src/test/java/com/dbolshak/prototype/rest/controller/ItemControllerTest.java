@@ -44,6 +44,7 @@ public class ItemControllerTest {
     public void getItemFound() throws Exception {
 
         when(itemDao.read(1)).thenReturn(new Item(1, "test content"));
+        when(itemDao.has(1)).thenReturn(true);
 
         this.mockMvc.perform(
                 get("/item/{id}", 1)
@@ -58,6 +59,7 @@ public class ItemControllerTest {
     public void getItemNotFound() throws Exception {
 
         when(itemDao.read(1)).thenReturn(null);
+        when(itemDao.has(1)).thenReturn(false);
 
         this.mockMvc.perform(
                 get("/item/{id}", 1)

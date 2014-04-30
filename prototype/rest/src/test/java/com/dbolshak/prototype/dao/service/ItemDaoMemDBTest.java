@@ -56,4 +56,16 @@ public class ItemDaoMemDBTest {
         Assert.assertEquals(false, itemDao.delete(Long.MAX_VALUE));
         Assert.assertTrue(itemDao.read(Long.MAX_VALUE) == null);
     }
+
+    @Test
+    public void has() {
+        Assert.assertEquals(false, itemDao.has(0));
+        Assert.assertEquals(false, itemDao.has(-1));
+        Assert.assertEquals(false, itemDao.has(1));
+        Assert.assertEquals(false, itemDao.has(Long.MAX_VALUE));
+        Assert.assertEquals(false, itemDao.has(Long.MIN_VALUE));
+
+        long itemId = itemDao.create(CONTENT).getId();
+        Assert.assertEquals(true, itemDao.has(itemId));
+    }
 }

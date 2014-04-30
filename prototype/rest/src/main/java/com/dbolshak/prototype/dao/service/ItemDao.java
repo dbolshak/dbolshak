@@ -38,4 +38,12 @@ public interface ItemDao {
      * @return true if success or false otherwise
      */
     boolean delete(long id);
+
+    /**
+     * Checks that such item is presented in storage
+     *
+     * @param id id of item which need to be examined.
+     * @return true if item with such id is in storage, otherwise false
+     */
+    boolean has(long id);
 }
