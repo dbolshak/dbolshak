@@ -1,13 +1,15 @@
 package com.dbolshak.prototype.dao.service;
 
 import com.dbolshak.prototype.dao.model.domain.Item;
-
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * Simple implementation of ItemDao based on memory.
+ */
 @Service("itemDao")
 class ItemDaoMemDB implements ItemDao {
     private final Map<Long, Item> storage = new HashMap<Long, Item>();
