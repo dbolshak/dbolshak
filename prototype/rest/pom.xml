@@ -12,7 +12,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.version>4.0.3.RELEASE</spring.version>
+        <spring.version>4.0.4.RELEASE</spring.version>
         <jackson.version.codehouse>1.9.13</jackson.version.codehouse>
 
         <!-- For Test scope-->
@@ -20,7 +20,7 @@
         <spring.mock.mvc.version>2.3.1</spring.mock.mvc.version>
         <mockito.version>1.9.5</mockito.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
-        <jackson.version>2.4.0-rc1</jackson.version>
+        <jackson.version>2.4.0-rc2</jackson.version>
     </properties>
 
     <dependencies>

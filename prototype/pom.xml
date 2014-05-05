@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <groovy.version>2.3.0-rc-2</groovy.version>
+        <groovy.version>2.3.0-rc-4</groovy.version>
     </properties>
     
     <modules>
