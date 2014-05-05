@@ -23,6 +23,17 @@ public class ItemController {
         return new ResponseEntity<Item>(HttpStatus.NOT_FOUND);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResponseEntity<Boolean> delete(@PathVariable long id) {
+        if (itemDao.has(id)) {
+            return new ResponseEntity<Boolean>(itemDao.delete(id), HttpStatus.OK);
+        }
+        return new ResponseEntity<Boolean>(HttpStatus.NOT_FOUND);
+    }
+
+
+    /** For testing */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -30,11 +41,5 @@ public class ItemController {
         ++counter;
         itemDao.create(String.format("test{%s}", counter));
         return String.valueOf(counter);
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
-    public String delete(@PathVariable long id) {
-        itemDao.delete(id);
-        return String.valueOf(id);
     }
 }

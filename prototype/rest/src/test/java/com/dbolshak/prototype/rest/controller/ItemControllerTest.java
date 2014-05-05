@@ -3,6 +3,7 @@ package com.dbolshak.prototype.rest.controller;
 import com.dbolshak.prototype.dao.model.domain.Item;
 import com.dbolshak.prototype.dao.service.ItemDao;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,11 +14,13 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
@@ -46,11 +49,13 @@ public class ItemControllerTest {
         when(itemDao.read(1)).thenReturn(new Item(1, "test content"));
         when(itemDao.has(1)).thenReturn(true);
 
-        this.mockMvc.perform(
+        ResultActions resultActions = this.mockMvc.perform(
                 get("/item/{id}", 1)
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
+
+        Assert.assertEquals("{\"id\":1,\"content\":\"test content\"}", resultActions.andReturn().getResponse().getContentAsString());
 
         verify(itemDao).read(1);
         verify(itemDao).has(1);
@@ -64,7 +69,54 @@ public class ItemControllerTest {
 
         this.mockMvc.perform(
                 get("/item/{id}", 1)
-                        .accept(MediaType.APPLICATION_JSON))
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+
+        verify(itemDao).has(1);
+    }
+
+    @Test
+    public void deleteItemFoundSuccess() throws Exception {
+
+        when(itemDao.delete(1)).thenReturn(true);
+
+        when(itemDao.has(1)).thenReturn(true);
+
+        ResultActions resultActions = this.mockMvc.perform(
+                delete("/item/{id}", 1)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        Assert.assertEquals("true", resultActions.andReturn().getResponse().getContentAsString());
+        verify(itemDao).delete(1);
+    }
+
+    @Test
+    public void deleteItemFoundNotSuccess() throws Exception {
+
+        when(itemDao.delete(1)).thenReturn(false);
+
+        when(itemDao.has(1)).thenReturn(true);
+
+        ResultActions resultActions = this.mockMvc.perform(
+                delete("/item/{id}", 1)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+        Assert.assertEquals("false", resultActions.andReturn().getResponse().getContentAsString());
+        verify(itemDao).delete(1);
+    }
+
+    @Test
+    public void deleteItemNotFound() throws Exception {
+        when(itemDao.has(1)).thenReturn(false);
+
+        this.mockMvc.perform(
+                delete("/item/{id}", 1)
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isNotFound());
 
