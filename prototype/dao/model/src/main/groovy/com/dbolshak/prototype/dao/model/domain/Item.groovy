@@ -12,3 +12,13 @@ class Item {
         this.content = content;
     }
 }
+
+/*
+
+CREATE TABLE "Item" (
+  "id" BOOL,
+  "content" NVARCHAR2(1000),
+  constraint Item_PK PRIMARY KEY ("id")
+)
+
+ */
