@@ -10,8 +10,8 @@ import org.junit.Test;
  * unit tests for ItemDaoMemDB
  */
 public class ItemDaoMemDBTest {
-    private ItemDao itemDao;
     private static final String CONTENT = "Test";
+    private ItemDao itemDao;
 
     @Before
     public void setUp() {

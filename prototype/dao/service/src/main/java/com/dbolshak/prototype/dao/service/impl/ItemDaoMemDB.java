@@ -2,7 +2,6 @@ package com.dbolshak.prototype.dao.service.impl;
 
 import com.dbolshak.prototype.dao.model.domain.Item;
 import com.dbolshak.prototype.dao.service.ItemDao;
-
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
