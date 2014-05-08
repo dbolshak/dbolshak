@@ -11,6 +11,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <groovy.version>2.3.0</groovy.version>
+
+        <junit.version>4.11</junit.version>
     </properties>
     
     <modules>
