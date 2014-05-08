@@ -3,6 +3,8 @@ package com.dbolshak.prototype.dao.service.impl;
 import com.dbolshak.prototype.dao.model.domain.Item;
 import com.dbolshak.prototype.dao.service.ItemDao;
 
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -10,8 +12,9 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * Simple implementation of ItemDao based on memory.
  */
+@Service("itemDao")
 class ItemDaoMemDB implements ItemDao {
-    private final Map<Long, Item> storage = new HashMap<Long, Item>();
+    private final Map<Long, Item> storage = new HashMap<>();
     private final AtomicLong counter = new AtomicLong(0);
 
     @Override

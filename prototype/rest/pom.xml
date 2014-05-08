@@ -12,7 +12,6 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.version>4.0.4.RELEASE</spring.version>
         <jackson.version.codehouse>1.9.13</jackson.version.codehouse>
 
         <!-- For Test scope-->
@@ -26,6 +25,11 @@
         <dependency>
             <groupId>com.dbolshak</groupId>
             <artifactId>model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dbolshak</groupId>
+            <artifactId>service</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
