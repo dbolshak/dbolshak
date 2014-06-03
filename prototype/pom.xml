@@ -11,8 +11,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <groovy.version>2.3.0</groovy.version>
-        <spring.version>4.0.4.RELEASE</spring.version>
+        <groovy.version>2.3.2</groovy.version>
+        <spring.version>4.0.5.RELEASE</spring.version>
 
         <junit.version>4.11</junit.version>
     </properties>

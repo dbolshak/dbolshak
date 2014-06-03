@@ -1,1 +1,1 @@
-Test from dbolshak
+Simple java web application to demonstrate RESTfull
